@@ -1,0 +1,415 @@
+
+<!DOCTYPE html>
+
+<!--[if IE 6]><html class="lt-ie9 lt-ie8 ie6"> <![endif]-->
+<!--[if IE 7]><html class="lt-ie9 lt-ie8 ie7"> <![endif]-->
+<!--[if IE 8]><html class="lt-ie9 ie8"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="">
+<!--<![endif]-->
+<head>
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<title>FreshForks Dashboard</title>
+
+<link rel="stylesheet" type="text/css" href="css/reset.css" />
+
+<link rel="stylesheet" type="text/css" href="css/layout.css" />
+<!--[if gt IE 9]><!-->
+
+<script defer src="fusioncharts/fusioncharts.js"></script>
+<script defer src="fusioncharts/fusioncharts.charts.js"></script>
+<script defer src="fusioncharts/fusioncharts.maps.js"></script>
+<script defer src="js/fusioncharts.theme.management-dashboard.js"></script>
+<script defer src="js/data.js"></script>
+<script defer src="js/dashboard.js"></script>
+<!--<![endif]-->
+
+<!--[if lte IE 9]>
+    <script type="text/javascript" src="fusioncharts/fusioncharts.js"></script>
+    <script type="text/javascript" src="fusioncharts/fusioncharts.charts.js"></script>
+    <script type="text/javascript" src="fusioncharts/fusioncharts.maps.js"></script>
+    <script type="text/javascript" src="js/fusioncharts.theme.management-dashboard.js"></script>
+    <script type="text/javascript" src="js/data.js"></script>
+    <script type="text/javascript" src="js/dashboard.js"></script>
+    <![endif]-->
+</head>
+<body>
+
+<div id="modalWrapper">
+<a id="close-modal" class="close-modal icon" href="javascript:void(0)"></a>
+<h3 id="modal-title"></h3>
+<div class="modal" id='modal'>
+</div>
+</div>
+
+
+<div id="wrapper">
+
+<div id="container">
+
+<div class="top-level-select-filter" id="top-level-select-filter">
+<span>View For Year:</span>
+<div class="select-style pull-right">
+<select id="global_year_filter">
+<option value="2014">2014</option>
+<option value="2013">2013</option>
+<option value="2012">2012</option>
+</select>
+<div class="select-arrow pull-right"></div>
+</div>
+</div>
+
+
+<div class="logo-container">
+<div id="fflogo"></div>
+</div>
+
+<div id="dashboard-content">
+
+<div id="sidebar" class="pull-left">
+<div id="profile-pic" class="pull-left">
+<img src="img/profile-pic.jpg" alt="John Profile Pic" title="John Profile Pic">
+</div>
+<div id="profile-name" class="pull-left">
+<p>Hello, John</p>
+</div>
+<div id="main-menu" class="clearboth">
+<div id="main-menu-icon" class="icon pull-left"></div>
+<h4 class="pull-left">Dashboard</h4>
+</div>
+<ul id="sub-menu">
+<li><a href="#summary" id="summary-link">Summary</a>
+</li>
+<li><a href="#sales" id="sales-link">Sales</a>
+</li>
+<li><a href="#geography" id="geography-link">Geography</a>
+</li>
+<li><a href="#kpi" id="kpi-link">KPI</a>
+</li>
+</ul>
+</div>
+
+
+<div id="summary" class="hidden">
+<div class="chart-content pull-right">
+
+<div class="chart-category pull-left">
+<h2 class="chart-category-heading">Yearly sales comparison</h2>
+<div class="divider"></div>
+<div id="yearly-sales-chart"></div>
+</div>
+
+
+<div class="chart-category pull-left no-border">
+<h2 class="chart-category-heading pull-left">Top sales performers</h2>
+
+<div class="select-style pull-right">
+<select id="top_sales_performers_summary_number_filter">
+<option value="3">Top 3</option>
+<option value="5">Top 5</option>
+<option value="all">All</option>
+</select>
+<div class="select-arrow pull-right"></div>
+</div>
+
+<div class="select-style pull-right">
+<select id="top_sales_performers_summary_year_filter">
+<option value="2014">2014</option>
+<option value="2013">2013</option>
+<option value="2012">2012</option>
+</select>
+<div class="select-arrow pull-right"></div>
+</div>
+<div class="divider clearboth"></div>
+
+<div id="top-sales-performers-chart"></div>
+</div>
+
+
+<div class="chart-category full-width">
+<h2 class="chart-category-heading pull-left">Top products</h2>
+
+<div class="select-style pull-right">
+<select id="top_products_summary_number_filter">
+<option value="5">Top 5</option>
+<option value="10">Top 10</option>
+</select>
+<div class="select-arrow pull-right"></div>
+</div>
+
+<div class="select-style pull-right">
+<select id="top_products_summary_year_filter">
+<option value="2014">2014</option>
+<option value="2013">2013</option>
+<option value="2012">2012</option>
+</select>
+<div class="select-arrow pull-right"></div>
+</div>
+<div class="divider clearboth"></div>
+
+<div id="top-products-chart"></div>
+</div>
+
+
+<div class="chart-category pull-left">
+<h2 class="chart-category-heading pull-left">Top countries by revenue</h2>
+
+<div class="select-style pull-right">
+<select id="top_revenues_country_number_filter">
+<option value="5">Top 5</option>
+<option value="10">Top 10</option>
+</select>
+<div class="select-arrow pull-right"></div>
+</div>
+
+<div class="select-style pull-right">
+<select id="top_revenues_country_year_filter">
+<option value="2014">2014</option>
+<option value="2013">2013</option>
+<option value="2012">2012</option>
+</select>
+<div class="select-arrow pull-right"></div>
+</div>
+<div class="divider clearboth"></div>
+
+<div id="top-revenues-countries-chart"></div>
+</div>
+
+
+<div class="chart-category pull-right no-border">
+<h2 class="chart-category-heading pull-left">Top cities by revenue</h2>
+
+<div class="select-style pull-right">
+<select id="top_revenues_cities_summary_number_filter">
+<option value="5">Top 5</option>
+<option value="10">Top 10</option>
+</select>
+<div class="select-arrow pull-right"></div>
+</div>
+
+<div class="select-style pull-right">
+<select id="top_revenues_cities_summary_year_filter">
+<option value="2014">2014</option>
+<option value="2013">2013</option>
+<option value="2012">2012</option>
+</select>
+<div class="select-arrow pull-right"></div>
+</div>
+<div class="divider clearboth"></div>
+
+<div id="top-revenues-cities-chart"></div>
+</div>
+
+</div>
+</div>
+
+
+<div id="sales" class="hidden">
+<div class="chart-content pull-right">
+
+<div class="chart-category pull-left">
+<h2 class="chart-category-heading pull-left">Top categories by sales</h2>
+
+<div class="select-style pull-right">
+<select id="top_categories_sales_tab_year_filter">
+<option value="2014">2014</option>
+<option value="2013">2013</option>
+<option value="2012">2012</option>
+</select>
+<div class="select-arrow pull-right"></div>
+</div>
+<div class="divider clearboth"></div>
+<div class="drill-caption-wrapper">
+<div class="drill-caption">Click on a colum to view details</div>
+</div>
+
+<div id="top-categories-sales-tab-chart"></div>
+</div>
+
+
+<div class="chart-category pull-right no-border">
+<h2 class="chart-category-heading pull-left">Top performers by sales</h2>
+
+<div class="select-style pull-right">
+<select id="top_performers_sales_year_filter">
+<option value="2014">2014</option>
+<option value="2013">2013</option>
+<option value="2012">2012</option>
+</select>
+<div class="select-arrow pull-right"></div>
+</div>
+<div class="divider clearboth"></div>
+<div class="drill-caption-wrapper">
+<div class="drill-caption">Click on a colum to view details</div>
+</div>
+
+<div id="top-performers-sales-tab-chart"></div>
+</div>
+
+
+<div class="chart-category full-width">
+<h2 class="chart-category-heading pull-left">Monthly sales</h2>
+
+<div class="select-style pull-right">
+<select id="top_monthly_sales_year_filter">
+<option value="2014">2014</option>
+<option value="2013">2013</option>
+<option value="2012">2012</option>
+</select>
+<div class="select-arrow pull-right"></div>
+</div>
+<div class="divider clearboth"></div>
+
+<div id="top-monthly-sales-tab-chart"></div>
+</div>
+
+</div>
+</div>
+
+
+<div id="geography" class="hidden">
+<div class="chart-content pull-right">
+
+<div class="chart-category pull-left geography-chart">
+
+<div class="select-style pull-right">
+<select id="northamerica_year_filter">
+<option value="2014">2014</option>
+<option value="2013">2013</option>
+<option value="2012">2012</option>
+</select>
+<div class="select-arrow pull-right"></div>
+</div>
+<h2 class="chart-category-heading pull-left">North America sales</h2>
+<div class="divider clearboth"></div>
+
+<div id="north-america-sales-chart"></div>
+<div id="NATableHolder"></div>
+</div>
+
+
+<div class="chart-category pull-left geography-chart">
+
+<div class="select-style pull-right">
+<select id="southamerica_year_filter">
+<option value="2014">2014</option>
+<option value="2013">2013</option>
+<option value="2012">2012</option>
+</select>
+<div class="select-arrow pull-right"></div>
+</div>
+<h2 class="chart-category-heading pull-left">South America sales</h2>
+<div class="divider clearboth"></div>
+
+<div id="south-america-sales-chart"></div>
+<div id="SATableHolder"></div>
+</div>
+
+
+<div class="chart-category pull-left no-border geography-chart">
+
+<div class="select-style pull-right">
+<select id="europe_year_filter">
+<option value="2014">2014</option>
+<option value="2013">2013</option>
+<option value="2012">2012</option>
+</select>
+<div class="select-arrow pull-right"></div>
+</div>
+<h2 class="chart-category-heading pull-left">Europe sales</h2>
+<div class="divider clearboth"></div>
+
+<div id="europe-sales-chart"></div>
+<div id="europe-table-cont">
+<div id="europeTableHolder"></div>
+</div>
+</div>
+
+</div>
+</div>
+
+
+<div id="kpi" class="hidden">
+<div class="chart-content pull-right">
+
+<div class="chart-category pull-left">
+
+<div class="select-style pull-right">
+<select id="inventory_by_categories_year_filter">
+<option value="2014">2014</option>
+<option value="2013">2013</option>
+<option value="2012">2012</option>
+</select>
+<div class="select-arrow pull-right"></div>
+</div>
+<h2 class="chart-category-heading pull-left">Product categories by inventory</h2>
+<div class="divider clearboth"></div>
+<div class="drill-caption-wrapper">
+<div class="drill-caption">Click on a colum to view details</div>
+</div>
+
+<div id="inventory-by-product-categories-chart"></div>
+</div>
+
+
+<div class="chart-category pull-right no-border">
+
+<div class="select-style pull-right">
+<select id="cost_of_goods_sold_year_filter">
+<option value="2014">2014</option>
+<option value="2013">2013</option>
+<option value="2012">2012</option>
+</select>
+<div class="select-arrow pull-right"></div>
+</div>
+<h2 class="chart-category-heading pull-left">Cost of goods sold</h2>
+<div class="divider clearboth"></div>
+
+<div id="cost-of-goods-sold-chart"></div>
+</div>
+
+
+<div class="chart-category pull-left">
+
+<div class="select-style pull-right">
+<select id="average_shipping_time_year_filter">
+<option value="2014">2014</option>
+<option value="2013">2013</option>
+<option value="2012">2012</option>
+</select>
+<div class="select-arrow pull-right"></div>
+</div>
+<h2 class="chart-category-heading pull-left">Average shipping time</h2>
+<div class="divider clearboth"></div>
+
+<div id="average-shipping-time-chart"></div>
+</div>
+
+
+<div class="chart-category pull-right no-border">
+
+<div class="select-style pull-right">
+<select id="customer_satisfaction_year_filter">
+<option value="2014">2014</option>
+<option value="2013">2013</option>
+<option value="2012">2012</option>
+</select>
+<div class="select-arrow pull-right"></div>
+</div>
+<h2 class="chart-category-heading pull-left">Customer satisfaction</h2>
+<div class="divider clearboth"></div>
+
+<div id="customer-satisfaction-chart"></div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="footer"></div>
+</div>
+
+</div>
+
+</body>
+</html>
